@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static '/css/style-signup.css'%}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>OTP Verification Page</h2>
+      <h2>
+        <center>
+          {% if message %}
+          <h4 style="color:red;">{{message}}</h4>
+          {% endif %}
+        </center>
+      </h2>
+      <form action="{% url 'otpverify' %} " method="post">
+        {% csrf_token %}
+        <div class="input-box">
+            <input type="text" name="email" value="{{email}}" readonly/> <!--here we have given readonly,hence no one can change it.-->
+        </div>
+        <div class="input-box">
+          <label>Your OTP</label>
+          <input type="text" name="otp" placeholder="Enter your OTP" required />
+        </div>
+        <div class="input-box button" style="margin-top:30px;">
+            <input type="Submit" value="verify" />
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static '/css/style-signup.css'%}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>  Verification Page </h2>
+
+      <form action="{% url 'verifycompany' pk=company.id %} " method="post">
+        {% csrf_token %}
+        <div class="input-box">
+          <select name="is_verified">
+            <option>----select option----</option>
+            <option>True</option>
+            <option>False</option>
+          </select>
+        </div>
+        <div class="input-box button" style="margin-top:30px;">
+            <input type="Submit" value="verify" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

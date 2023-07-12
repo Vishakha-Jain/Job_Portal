@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static '/css/style-signup.css'%}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Login</h2>
+      <form action="{% url 'login' %} " method="post">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>Select Role:</label>
+          <select name="role" required>
+              <option>----select ROLE-----</option>
+              <option>candidate</option>
+              <option>company</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <input type="text" name="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </div>
+        <div class="input-box button">
+          <input type="Submit" value="login" />
+        </div>
+        <div class="text">
+          <h3>Don't have an account ? <a href="#">register now</a></h3>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

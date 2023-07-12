@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static '/company/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static '/company/css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Job Post Form </h1>
+                            </div>
+                            {% if message %}
+                                <h4 style="color:green">{{message}}</h4>
+                            {% endif %}
+                            <form class="user" method="post" action="{% url 'jobpost' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                             placeholder="job name" name="jobname">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                             placeholder="company name" name="companyname">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                            placeholder="Company Address" name="companyaddress">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <textarea class="form-control" name="jobdescription">
+                                            job description
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                            placeholder="qualification" name="qualification">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                            placeholder="responsibilities" name="responsibilities">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control"
+                                             placeholder="location" name="location" >
+                                    </div>
+                                </div>
+                                {% comment %} {{MEDIA_URL}}{{comp.logo_pic.url}} {% endcomment %}
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control" placeholder="company website" name="companywebsite">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control" placeholder="company email" name="companyemail">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control" placeholder="company contact" name="companycontact">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="text" class="form-control" placeholder="salary package" name="salarypackage">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="number" class="form-control" placeholder="experience" name="experience">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:15px;">
+                                    <div class="col-sm-6" style="max-width:576px;padding:0px;">
+                                        <input type="file" class="form-control"  name="logo">
+                                    </div>
+                                </div>
+                                <div style="text-align:center">
+                                    <input type="submit" value="save">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static '/company/vendor/jquery/jquery.min.jsv' %}"></script>
+    <script src="{% static '/company/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static '/company/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static '/company/js/sb-admin-2.min.js' %}"></script>
+
+</body>
+
+</html>

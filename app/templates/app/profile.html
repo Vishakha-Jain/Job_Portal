@@ -1,0 +1,207 @@
+{% extends 'app/base1.html' %}
+{% load static %}   
+{% block content %}
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-12 ftco-animate text-center mb-5">
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Job Post</span></p>
+            <h1 class="mb-3 bread">Candidate Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+		<section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+       
+          <div class="col-md-12 col-lg-8 mb-5">
+          
+			     <form action="{% url 'updateprofile' pk=request.session.id %}" class="p-5 bg-white" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fname">Enter Your First Name:</label>
+                  <input type="text" id="fname" class="form-control" value="{{can.firstname}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="lname">Enter Your Last Name:</label>
+                  <input type="text" id="lname" class="form-control" value="{{can.lastname}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="email">Enter Your Email:</label>
+                  <input type="email" id="email" class="form-control" value="{{user.email}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="contact">Enter Your Contact:</label>
+                  <input type="tel" id="contact" class="form-control" name="contact" value="{{can.contact}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="state">Enter Your State:</label>
+                  <input type="text" id="state" class="form-control" name="state" value="{{can.state}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="city">Enter Your City:</label>
+                  <input type="text" id="city" class="form-control" name="city" value="{{can.city}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="address">Enter Your Address:</label>
+                  <textarea id="address" class="form-control" name="address" >
+                    {{can.address}}
+                  </textarea>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="dob">Enter Your DOB:</label>
+                  <input type="date" id="dob" class="form-control" name="dob" value="{{can.dob}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="gender">Enter Your Gender:</label>
+                  <input type="text" id="gender" class="form-control" name="gender" value="{{can.gender}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="min_salary">Enter Your Minimum salary:</label>
+                  <input type="text" id="min_salary" class="form-control" name="min_salary" value="{{can.min_salary}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="max_salary">Enter Your Maximum salary:</label>
+                  <input type="text" id="max_salary" class="form-control" name="max_salary" value="{{can.max_salary}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="job_type">Enter Your Job Type:</label>
+                  <input type="text" id="job_type" class="form-control" name="job_type" value="{{can.job_type}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="jobcategory">Enter Your Job Category:</label>
+                  <input type="text" id="jobcategory" class="form-control" name="jobcategory" value="{{can.jobcategory}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="country">Enter Your Country:</label>
+                  <input type="text" id="country" class="form-control" name="country" value="{{can.country}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="highestedu">Enter Your Highest Education:</label>
+                  <input type="text" id="highestedu" class="form-control" name="highestedu" value="{{can.highestedu}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="experience">Enter Your Experience:</label>
+                  <input type="text" id="experience" class="form-control" name="experience" value="{{can.experience}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="website">Enter Website:</label>
+                  <input type="text" id="website" class="form-control" name="website" value="{{can.website}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="shift">Enter Shift:</label>
+                  <input type="text" id="shift" class="form-control" name="shift" value="{{can.shift}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="jobdescription">Enter Job Description :</label>
+                  <input type="text" id="jobdescription" class="form-control" name="jobdescription" value="{{can.jobdescription}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="image">Profile Pic :</label>
+                  <input type="file" id="image" class="form-control" name="image" value="{{can.profile_pic}}">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <input type="submit" value="submit">
+                </div>
+              </div>
+              {% comment %} in html page we can also apply condition for shwing different elements according to condition like 
+                {% if can.jobdescription %}
+                      if jobdescription is present in the database candidate then this html elements will display.
+                {% else %}
+                      if jobdescription is not present in the database candidate,then this html elements will display.
+                {% endif %}
+              {% endcomment %}
+            </form>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">Contact Info</h3>
+              <p class="mb-0 font-weight-bold">Address</p>
+              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
+              <p class="mb-0 font-weight-bold">Phone</p>
+              <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+
+              <p class="mb-0 font-weight-bold">Email Address</p>
+              <p class="mb-0"><a href="#"><span class="__cf_email__" data-cfemail="671e081215020a060e0b2703080a060e094904080a">[email&#160;protected]</span></a></p>
+
+            </div>
+            
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">More Info</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
+              <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+		<section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+              <h2>Subcribe to our Newsletter</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+              <div class="row d-flex justify-content-center mt-4 mb-4">
+                <div class="col-md-12">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
